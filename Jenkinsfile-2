@@ -1,0 +1,19 @@
+pipeline {
+  agent any
+  stages {
+    stage('Example Build') {
+      steps {
+        sh 'echo Hello World'
+      }
+    }
+    stage('Example Deploy') {
+      when {
+        branch 'main'
+        environment name: 'DEPLOY_TO', value: 'production'
+      }
+      steps {
+        sh 'echo Deploying'
+      }
+    }
+  }
+}

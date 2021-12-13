@@ -1,0 +1,16 @@
+pipeline {
+  agent none
+  stages {
+    stage('Example Deploy') {
+      agent {
+        label 'linux'
+      }
+      when {
+        triggeredBy 'TimerTrigger'
+      }
+      steps {
+        sh 'echo Deploying'
+      }
+    }
+  }
+}

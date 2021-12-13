@@ -1,0 +1,17 @@
+pipeline {
+  agent none
+  stages {
+    stage('Example Deploy') {
+      agent {
+        label 'linux'
+      }
+      when {
+        beforeAgent true
+        branch 'main'
+      }
+      steps {
+        sh 'echo Deploying'
+      }
+    }
+  }
+}
